@@ -12,24 +12,26 @@ class App extends Component {
   }
 
   openModalHandler = () => {
-    console.log("Hii");
     this.setState({isModalOpen : true});
-  }
+  };
 
   closeModalHandler = () => {
-    console.log("close called");
     this.setState({isModalOpen : false});
-  }
+  };
 
   render() {
+    console.log(this.state.isModalOpen);
     return (
       <div className="App">
+
         <h1>React Animations</h1>
-        <Modal show={this.state.isModalOpen} closed={this.props.closeModalHandler}/>
-        <Backdrop show={this.state.isModalOpen} /> 
         <button className="Button" onClick={this.openModalHandler}>Open Modal</button>
+        <Modal show={this.state.isModalOpen} closed={this.closeModalHandler}/>
+        <Backdrop show={this.state.isModalOpen} /> 
+        
         <h3>Animating Lists</h3>
         <List />
+        
       </div>
     );
   }
