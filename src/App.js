@@ -45,13 +45,21 @@ class App extends Component {
             }
         </Transition>
         
-        <Transition in={this.state.isModalOpen} mountOnEnter unmountOnExit timeout={300}>
+        {/* <Transition in={this.state.isModalOpen} mountOnEnter unmountOnExit timeout={300}
+          onEnter={() => console.log('onEnter')}
+          onEntering={() => console.log('onEntering')}
+          onEntered={() => console.log('onEntered')}
+          onExit={() => console.log('onExit')}
+          onExiting={() => console.log('onExiting')}
+          onExited={() => console.log('onExited')}
+        >
           {
             state =>  <Modal show={state} closed={this.closeModalHandler}/>          
           }
-        </Transition>
+        </Transition> */}
 
         <button className="Button" onClick={this.openModalHandler}>Open Modal</button>
+        {this.state.isModalOpen ? <Modal show={this.state.isModalOpen} closed={this.closeModalHandler}/> : null}
         {this.state.isModalOpen ? <Backdrop show={this.state.isModalOpen} /> : null}
         <h3>Animating Lists</h3>
         <List />
